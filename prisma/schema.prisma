@@ -116,7 +116,7 @@ model Purchase {
   @@index([courseId])
 }
 
-model StripCustomer {
+model StripeCustomer {
   id               String @id @default(uuid())
   userId           String @unique
   stripeCustomerId String @unique
