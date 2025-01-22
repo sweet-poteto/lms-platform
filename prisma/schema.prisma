@@ -2,12 +2,12 @@
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
 generator client {
-  provider        = "prisma-client-js"
-  previewFeatures = ["fullTextSearch", "fullTextIndex"]
+  provider = "prisma-client-js"
+  // previewFeatures = ["fullTextSearchPostgres"]
 }
 
 datasource db {
-  provider     = "mysql"
+  provider     = "postgresql"
   url          = env("DATABASE_URL")
   relationMode = "prisma"
 }
@@ -30,9 +30,9 @@ model Course {
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+  // @@full([title])
 
   @@index([categoryId])
-  @@fulltext([title])
 }
 
 model Category {
